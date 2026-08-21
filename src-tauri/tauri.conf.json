@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Vault",
+  "version": "0.3.2",
+  "identifier": "dev.personal.vault",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist",
+    "removeUnusedCommands": true
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Vault",
+        "width": 1180,
+        "height": 760,
+        "minWidth": 760,
+        "minHeight": 560,
+        "resizable": true,
+        "center": true,
+        "devtools": false
+      }
+    ],
+    "security": {
+      "freezePrototype": true,
+      "csp": {
+        "default-src": "'self'",
+        "connect-src": "ipc: http://ipc.localhost",
+        "img-src": "'self' data: blob:",
+        "style-src": "'self'",
+        "font-src": "'self'",
+        "object-src": "'none'",
+        "frame-src": "'none'",
+        "base-uri": "'none'",
+        "form-action": "'none'"
+      },
+      "devCsp": {
+        "default-src": "'self' http://localhost:1420",
+        "connect-src": "'self' ipc: http://ipc.localhost http://localhost:1420 ws://localhost:1420",
+        "img-src": "'self' data: blob: http://localhost:1420",
+        "style-src": "'self' 'unsafe-inline' http://localhost:1420",
+        "font-src": "'self' http://localhost:1420",
+        "object-src": "'none'",
+        "frame-src": "'none'",
+        "base-uri": "'none'",
+        "form-action": "'none'"
+      },
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+      }
+    }
+  },
+  "bundle": {
+    "active": false,
+    "publisher": "Vault",
+    "category": "Utility",
+    "shortDescription": "Local KeePass-compatible password manager"
+  }
+}

@@ -1,0 +1,37 @@
+[package]
+name = "vault-app"
+version = "0.3.2"
+description = "A modern local KeePass client"
+authors = ["you"]
+edition = "2021"
+
+[lib]
+name = "vault_app_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-clipboard-manager = "2"
+serde = { version = "1", features = ["derive"] }
+keepass = { version = "0.13.21", features = ["save_kdbx4"] }
+zeroize = "1.8"
+sha2 = "0.10"
+uuid = "1"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_Storage_FileSystem", "Win32_System_StationsAndDesktops", "Win32_System_Threading"] }
+
+[dev-dependencies]
+tempfile = "3"
+
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+strip = true
+opt-level = "s"

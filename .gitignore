@@ -1,0 +1,56 @@
+# Зависимости JavaScript и результаты сборки Vite
+node_modules/
+dist/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# Сгенерированные файлы Rust и Tauri
+src-tauri/target/
+src-tauri/gen/
+
+# Локальные пакеты и установщики
+*.AppImage
+*.deb
+*.rpm
+*.msi
+*-setup.exe
+
+# Настоящие, резервные и временные базы паролей
+*.kdbx
+*.kdb
+*.bak
+vault-backups/
+**/vault-backups/
+
+# Файлы окружения и журналы
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Настройки IDE и редакторов
+.idea/
+.vscode/
+*.code-workspace
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Файлы операционной системы
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Временные файлы
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
